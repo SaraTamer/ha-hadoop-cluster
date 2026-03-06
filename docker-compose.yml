@@ -1,0 +1,84 @@
+version: "3.9"
+
+services:
+  nn1:
+    image: ubuntu:24.04
+    container_name: nn1
+    hostname: nn1
+    ports:
+      - "8481:8480"   #JN
+      - "9871:9870"   #HDFS
+      - "8081:8088"   #YARN
+      - "2181:2181"  # ZK
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+      - ./scripts:/scripts
+    networks:
+      - cluster-network
+
+  nn2:
+    image: ubuntu:24.04
+    container_name: nn2
+    hostname: nn2
+    ports:
+      - "8482:8480"
+      - "9872:9870"
+      - "8082:8088"
+      - "2182:2181"
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+      - ./scripts:/scripts
+    networks:
+      - cluster-network
+
+  dn1:
+    image: ubuntu:24.04
+    container_name: datanode1
+    hostname: datanode1
+    ports:
+      - "8483:8480"
+      - "9873:9870"
+      - "8083:8088"
+      - "2183:2181"
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+      - ./scripts:/scripts
+    networks:
+      - cluster-network
+
+  dn2:
+    image: ubuntu:24.04
+    container_name: datanode2
+    hostname: datanode2
+    ports:
+      - "8484:8480"
+      - "9874:9870"
+      - "8084:8088"
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+      - ./scripts:/scripts
+    networks:
+      - cluster-network
+
+  dn3:
+    image: ubuntu:24.04
+    container_name: datanode3
+    hostname: datanode3
+    ports:
+      - "8485:8480"
+      - "9875:9870"
+      - "8085:8088"
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+      - ./scripts:/scripts
+    networks:
+      - cluster-network
+
+networks:
+  cluster-network:
+    driver: bridge
