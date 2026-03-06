@@ -4,7 +4,7 @@ A fully containerized **High Availability (HA) Hadoop cluster** running on Docke
 
 ## 📋 Architecture Overview
 
-![Hadoop HA Cluster Architecture](hadoop%20arch.png)
+![Hadoop HA Cluster Architecture](HadoopClusterArch.png)
 
 ### Node Configuration
 
