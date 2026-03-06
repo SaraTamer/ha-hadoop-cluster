@@ -4,7 +4,7 @@ A fully containerized **High Availability (HA) Hadoop cluster** running on Docke
 
 ## 📋 Architecture Overview
 
-![Hadoop HA Cluster Architecture](hadoop%20arch.png)
+![Hadoop HA Cluster Architecture](HadoopClusterArch.png)
 
 ### Node Configuration
 
@@ -22,10 +22,3 @@ A fully containerized **High Availability (HA) Hadoop cluster** running on Docke
 - **ZooKeeper on 3 nodes** (1,2,3) provides quorum for both HDFS and YARN failover
 - **ResourceManagers on nodes 3 and 4** are separate from ZooKeeper quorum to avoid single point of failure
 - **ZKFC runs on NameNode hosts** as required by Hadoop documentation
-
-## 🚀 Prerequisites
-
-- Docker Desktop 20.10+ (with WSL2 backend on Windows)
-- Git
-- 8GB+ RAM allocated to Docker
-- 20GB+ free disk space
